@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@400;500;600;700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Nunito Sans", "Noto Sans KR", sans-serif;
+  --font-display: "DM Serif Display", "Noto Sans KR", serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root { --radius: 0.8rem; --background: #FFFDF8; --foreground: #263534; --card: #ffffff; --card-foreground: #263534; --popover: #ffffff; --popover-foreground: #263534; --primary: #157A78; --primary-foreground: #ffffff; --secondary: #F5F0E9; --secondary-foreground: #554B42; --muted: #F5F0E9; --muted-foreground: #7B766F; --accent: #EAF5F2; --accent-foreground: #235B56; --destructive: #C85E50; --destructive-foreground: #ffffff; --border: #EAE2D8; --input: #EAE2D8; --ring: #157A78; }
+
+* { border-color: var(--border); }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: "Nunito Sans", "Noto Sans KR", sans-serif; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 3px solid rgba(21, 122, 120, .32); outline-offset: 3px; }
+.font-display { font-family: "DM Serif Display", "Noto Sans KR", serif; }
+.eyebrow { font-size: 11px; font-weight: 800; letter-spacing: .15em; color: #A38464; }
+.section-title { margin-top: .35rem; font-family: "DM Serif Display", "Noto Sans KR", serif; font-size: clamp(2.25rem, 5vw, 3.8rem); line-height: .95; letter-spacing: -.04em; color: #2D4541; }
+.section-title span { color: #E78667; font-style: italic; }
+.section-subtitle { margin-top: .75rem; font-size: 14px; font-weight: 700; color: #897B6D; }
+.lesson-action { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: .45rem; border-radius: 14px; padding: .65rem .85rem; font-size: 13px; font-weight: 800; transition: transform 160ms cubic-bezier(.23,1,.32,1), background-color 160ms cubic-bezier(.23,1,.32,1); }
+.lesson-action:active { transform: scale(.97); }
+.feature-card { border: 1px solid #E9E1D7; border-radius: 27px; background: #fff; padding: 1.5rem; box-shadow: 0 12px 26px rgba(83, 70, 49, .055); transition: transform 200ms cubic-bezier(.23,1,.32,1), box-shadow 200ms cubic-bezier(.23,1,.32,1); }
+.feature-card:hover { transform: translateY(-4px); box-shadow: 0 20px 34px rgba(83, 70, 49, .11); }
+.card-icon { display: grid; height: 38px; width: 38px; place-items: center; border-radius: 14px; color: white; box-shadow: 0 7px 12px rgba(0, 0, 0, .09); }
+.container { width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+@media (min-width: 640px) { .container { padding-left: 1.5rem; padding-right: 1.5rem; } }
+@media (min-width: 1024px) { .container { max-width: 1280px; padding-left: 2rem; padding-right: 2rem; } }
+@media (prefers-reduced-motion: no-preference) { .feature-card, section article { animation: rise-in .45s cubic-bezier(.23,1,.32,1) both; } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+
+@media (max-width: 767px) {
+  .app-topbar .container { height: 62px; }
+  .app-topbar .font-display { font-size: 16px; }
+  .app-hero .container { min-height: 0; gap: 1.5rem; padding-top: 1.85rem; padding-bottom: 2rem; }
+  .mission-widget { border-radius: 21px; }
+  .app-hero h1 { font-size: clamp(2.55rem, 13vw, 3.4rem); line-height: .9; }
+  .app-hero p { font-size: 14px; }
+  .app-hero img { aspect-ratio: 16 / 9; }
+  .feature-card { border-radius: 23px; padding: 1rem; }
+  .mobile-learner-button { min-height: 52px; padding-top: .7rem; padding-bottom: .7rem; }
+  .mobile-learner-button > span:first-child { height: 34px; width: 34px; font-size: 17px; }
+  .lesson-action, .app-primary-action { min-height: 52px; font-size: 14px; }
+  .mobile-wallet-card { padding: 1.35rem; }
+  .mobile-wallet-card .font-display { font-size: 4.3rem; }
+  .mobile-wallet-card > div > div:first-of-type > span { height: 70px; width: 70px; font-size: 32px; }
+  .mobile-wallet-card + * button { min-height: 52px; }
+  .section-title { font-size: clamp(2.15rem, 10.2vw, 2.85rem); }
+  .section-subtitle { font-size: 13px; }
+  textarea { font-size: 16px !important; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .app-hero .container { min-height: 0; }
+  .feature-card { padding: 1.25rem; }
+}
